@@ -9,7 +9,7 @@ import {
   V_TEMPLATE_NODE, V_TEXT_NODE, V_FOR_NODE, V_COMPONENT_NODE, V_HTML_NODE, V_SLOT_NODE,
   V_COMPONENT_IS_NODE
 } from './template'
-import Transition from './Transition'
+import Transition from './transition'
 import {addListener, removeListener, /*isEqualListener, */ListenEventInfo} from './eventListener'
 import LRU from './lru'
 import {debugOption} from './decorator'
