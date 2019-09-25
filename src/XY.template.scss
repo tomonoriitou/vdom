@@ -1,0 +1,11 @@
+
+  .test{
+    color: #0ff;
+  }
+
+@media screen and (max-width: 600px) {
+  .test{
+    color: #ff0;
+  }
+  /*div{ width: 100%; }*/
+}

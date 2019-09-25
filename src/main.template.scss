@@ -1,0 +1,50 @@
+
+.test, .sample{
+  color: #f0f;
+}
+
+.test2 .sample2{
+  color: #f0f;
+}
+
+.hogehoge /deep/ .sasasa {
+  color: #00f;
+}
+
+@media screen and (max-width: 600px) {
+  .test{
+    color: #ff0;
+  }
+  /*div{ width: 100%; }*/
+}
+
+
+
+.fade-enter-active, .fade-leave-active {
+  transition: opacity 0.5s, color 0.5s;
+}
+
+.fade-enter-to, .fade-leave {
+  opacity: 1.0;
+  color: #00f;
+}
+
+.fade-enter, .fade-leave-to {
+  opacity: 0;
+}
+
+
+
+
+.v-enter-active, .v-leave-active {
+  transition: opacity 0.5s, color 0.5s;
+}
+
+.v-enter-to, .v-leave {
+  opacity: 1.0;
+  color: #f00;
+}
+
+.v-enter, .v-leave-to {
+  opacity: 0;
+}

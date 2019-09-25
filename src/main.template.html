@@ -1,0 +1,486 @@
+<div>
+    <hr />
+    <template v-for="(item, key) in testDeep">
+      {{key}}:{{item}}<br/>
+    </template>
+    <hr />
+    <button @click="clickHandlerDeep1">DEEP 1!</button>
+    <button @click="clickHandlerDeep2">DEEP 2!</button>
+    <hr />
+
+
+    <!---
+
+
+    <hr />
+    <template v-for="(xitem, xkey, xindex) in xArray">
+      [{{xitem}},===]<XY :x="'xindex'" :y="'*'">★★★</XY><br/>
+    </template>
+
+    <hr />
+    <template v-for="(xitem, xkey, xindex) in xArray">
+      <template v-for="(yitem, ykey, yindex) in yArray">
+        [{{xitem}},{{yitem}},{{TT}}]<XY :x="'xitem'" :y="yitem">★★★</XY><br/>
+      </template>
+    </template>
+
+    <hr />
+    <template v-for="(xitem, xkey, xindex) in xArray">
+      <template v-for="(yitem, ykey, yindex) in yArray">
+        [{{xitem}},{{yitem}},{{TT}}]<XY :x="'xitem'" :y="yitem">★★★</XY><br/>
+      </template></template>
+
+    <hr />
+    <button @click="clickHandler($event)">FIRE!</button>
+    <button @click="clickHandler2()">FIRE 2!</button>
+    <hr />
+    -->
+
+    <!-- comment -->
+    <!---
+    <hr />
+    <button @click="++sampleNumber;">++sampleNumber</button><br/>
+    {{sampleNumber}}<br/>
+    <input type="text" v-model="sampleNumber"><br/>
+    <hr />
+
+
+    <button @click="show = !show; ++sampleNumber;">
+      Toggle render
+    </button><br/>
+
+    <component :is="compName" :param="sampleNumber">COMPINCOMP-{{sampleNumber}}</component>
+
+    <transition
+      @before-enter="trBeforeEnter"
+      @enter="trEnter"
+      @after-enter="trAfterEnter"
+      @enter-cancelled="trEnterCancelled"
+      @before-leave="trBeforeLeave"
+      @leave="trLeave"
+      @after-leave="trAfterLeave"
+      @leave-cancelled="trLeaveCancelled"
+    >
+      <div v-if="show">
+
+        <span v-for="n in sampleNumber">
+          <XY :x="'XX'" :y="n">★★★</XY>
+            <component :is="compName" :param="n">COMPINCOMP-{{sampleNumber}}</component>
+          <hr/>
+        </span>
+        <span v-for="n in sampleNumber">
+          <input type="checkbox" v-model="checked">
+          {{checked ? "yes" : "no"}}
+          <Sub class="PARENT CLASS" :param="sampleNumber">IF
+            <XY :x="'XX'" :y="sampleNumber"></XY>
+            <div>{{sampleNumber}}</div>
+          </Sub>
+          <component :is="compName" :param="sampleNumber">COMPINCOMP</component>
+          <hr/>
+        </span>
+      </div>
+    </transition>
+
+    <hr />
+    <transition
+      @before-enter="trBeforeEnter"
+      @enter="trEnter"
+      @after-enter="trAfterEnter"
+      @enter-cancelled="trEnterCancelled"
+      @before-leave="trBeforeLeave"
+      @leave="trLeave"
+      @after-leave="trAfterLeave"
+      @leave-cancelled="trLeaveCancelled"
+    >
+
+      <div v-if="show">
+        <div>★★★★★★★★★IF★★★★★★★★</div>
+      </div>
+      <div v-show="show">
+        <div>★★★★★★★★SHOW★★★★★★★★★</div>
+      </div>
+
+
+      <div v-if="show">
+        <hr />
+        <input v-model.trim="message" placeholder="edit me">
+        <p>Message is: {{ message }}</p>
+
+        <hr />
+        <input v-model.lazy.number="message" placeholder="edit me">
+        <p>Lazy Message is: {{ message }}</p>
+
+        <hr />
+        <span>Multiline message is:</span>
+        <p style="white-space: pre-line;">{{ mlMessage }}</p>
+        <br>
+        <textarea v-model="mlMessage" placeholder="add multiple lines"></textarea>
+
+        <hr />
+        <input type="checkbox" v-model="checked">
+        {{checked ? "yes" : "no"}}
+
+        <hr />
+        <input type="checkbox" id="jack" value="Jack" v-model="checkedNames">
+        <label for="jack">Jack</label>
+        <input type="checkbox" id="john" value="John" v-model="checkedNames">
+        <label for="john">John</label>
+        <input type="checkbox" id="mike" value="Mike" v-model="checkedNames">
+        <label for="mike">Mike</label>
+        <br>
+        <span>Checked names: {{ checkedNames }}</span>
+
+        <hr />
+        <input type="radio" name="picked" value="one" v-model="picked">
+        <input type="radio" name="picked" value="two" v-model="picked">
+        {{picked}}
+
+        <hr />
+        <select v-model="selected">
+          <option value="1">one</option>
+          <option value="2">two</option>
+        </select>
+        {{selected}}
+
+        <hr />
+        <select v-model="multiSelect" multiple>
+          <option >one</option>
+          <option >two</option>
+          <option >three</option>
+        </select>
+        {{multiSelect}}
+
+        <hr />
+      </div>
+
+
+    </transition>
+
+    <hr />
+    <component :is="compName" :param="sampleNumber">XXXXX</component>
+    <component :is="'Sub'" :param="sampleNumber">XXXXX</component>
+    <component :is="'XY'" :param="sampleNumber">XXXXX</component>
+
+    <hr />
+    <div v-display="show">
+      {{sampleNumber}} {{$componentId}} {{$instanceId}}
+    </div>
+
+    <hr />
+    <Sub @test="testEvent" :param="sampleNumber">★★★</Sub>
+
+    <hr />
+    <button @click="clickHandlerReload">vm.$forceRender</button>
+
+    <hr />
+    <transition name="fade">
+      <div v-for="(xitem, xkey, xindex) in xArray"><span class="test">[{{xitem}}]</span></div>
+    </xtransition>
+    <hr />
+    <transition
+      @before-enter="trBeforeEnter"
+      @enter="trEnter"
+      @after-enter="trAfterEnter"
+      @enter-cancelled="trEnterCancelled"
+      @before-leave="trBeforeLeave"
+      @leave="trLeave"
+      @after-leave="trAfterLeave"
+      @leave-cancelled="trLeaveCancelled"
+    >
+      <div v-if="show">
+        AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+        <div>★★★★★★★★SHOW★★★★★★★★★</div>
+        <div>★★★★★★★★★IF★★★★★★★★</div>
+        <Sub class="PARENT CLASS" :param="sampleNumber">SHOW</Sub>
+        <Sub class="PARENT CLASS" :param="sampleNumber">IF
+          <XY :x="'XX'" :y="sampleNumber"></XY>
+          <div>{{sampleNumber}}</div>
+          <component :is="compName" :param="sampleNumber">COMPINCOMP</component>
+        </Sub>
+        <div >★★★★★★★★★★★★★★★★★</div>
+        <component :is="compName" :param="sampleNumber">COMPINCOMP</component>
+      </div>
+      <div v-show="show">
+        BBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBB
+        <div>★★★★★★★★SHOW★★★★★★★★★</div>
+        <div>★★★★★★★★★IF★★★★★★★★</div>
+        <Sub class="PARENT CLASS" :param="sampleNumber">SHOW</Sub>
+        <Sub class="PARENT CLASS" :param="sampleNumber">IF
+          <XY :x="'XX'" :y="sampleNumber"></XY>
+          <div>{{sampleNumber}}</div>
+          <component :is="compName" :param="sampleNumber">COMPINCOMP</component>
+        </Sub>
+        <div >★★★★★★★★★★★★★★★★★</div>
+        <component :is="compName" :param="sampleNumber">COMPINCOMP</component>
+      </div>
+    </transition>
+    <div>
+
+    <transition name="fade">
+      <div v-show="show">
+
+        <hr />
+        {{'\{\{'}}NULL,,,,,{{'\}\}'}}
+        <hr />
+        <button @click="clickHandler($event)">FIRE!</button>
+        <v-style>
+          .test {
+            font-size:    {{sampleNumber}}px;
+          }
+        </v-style>
+        <hr />
+        <SlotTest>
+          <p>HOGEHOGE_D"E'F/A\ULT_SLOT</p>
+          <template #default>
+            DEFAULT_SLOT({{sampleNumber}})
+          </template>
+          <template #test="slotThis">
+            TEST SLOT({{sampleNumber2}}) {{slotThis.user}}
+          </template>
+        </SlotTest>
+
+        <hr />
+        【V-FOR AND COMPONENT】
+        <Sub v-for="n in 5" :param="sampleNumber">★★★</Sub>
+
+        <hr />
+        <Sub></Sub>
+        <Sub :param="sampleNumber"></Sub>
+
+        <hr />
+        [{{sampleNumber}}]
+
+        <hr />
+        <button @click="clickHandler($event)">FIRE!</button>
+        <button @click="clickHandler3()">FIRE!</button>
+
+        <hr />
+        【D sampleNumber2
+        <Sub :param="sampleNumber2"></Sub>
+
+        <hr />
+        <button @['click']="clickHandlerReload">vm.$forceRender</button>
+
+        <hr />
+        <div class="base" :class="'ext'" style="display:initial;" :style="'color: #f00;'">
+          {{sampleNumber * sampleNumber2}}
+        </div>
+
+        <hr />
+        <div class="base" :class="{a: true, b:false, c:true}" style="display:initial;" :style="{color: '#f0f', 'font-size': sampleNumber + 'px'}">
+          {{sampleNumber * sampleNumber2}}
+        </div>
+
+        <hr />
+        <div class="base" :class="[test, 'b']" style="display:initial;" :style="[{color: '#f0f'},{'font-size': sampleNumber + 'px'}]">
+          {{sampleNumber * sampleNumber2}}
+        </div>
+
+        <hr/>
+        <template v-for="n in 10">
+          [{{n}}]
+        </template>
+
+        <hr/>
+        【v-show】
+        <div :[test]='sampleNumber' style="color: #f00;" v-show='(sampleNumber % 2) === 0'>
+          AAA
+        </div>
+
+        <hr/>
+        <template v-for="(item, key, index) in sampleArray2">
+          <template v-if="(item % 2) == 0">
+            {{item}},{{key}},{{index}}<br/>
+          </template>
+        </template>
+
+        <hr/>
+        <template v-for="(item, key, index) in sampleArray2">
+          {{item}},{{key}},{{index}}<br/>
+        </template>
+
+        <hr />
+        <div v-for="(xitem, xkey, xindex) in xArray"><span class="test">[{{xitem}}]</span></div>
+
+        <hr />
+        <button @click="clickHandlerSet">vm.$set</button>
+        <button @['click']="clickHandler($event)">clickHandler!</button>
+        <button @click="clickHandler2">clickHandler2!</button>
+
+        <hr />
+        <template v-for="(xitem, xkey, xindex) in xArray">
+          [{{xitem}},===]<br/>
+          <XY :x="xitem" :y="'=X='"></XY>
+        </template>
+
+        <hr />
+        <template v-for="(xitem, xkey, xindex) in xArray">
+          <template v-for="(yitem, ykey, yindex) in yArray">
+            [{{xitem}},{{yitem}},{{TT}}]<XY :x="xitem" :y="yitem"></XY><br/>
+          </template>
+        </template>
+
+        <hr />
+        【X buttons】
+        <button @click="clickHandlerSet()">vm.$set</button>
+        <button @click="clickHandler($event)">FIRE!</button>
+        <button @click="clickHandler2()">FIRE 2!</button>
+        <button @click="clickHandler3()">FIRE!</button>
+
+        <hr />
+        【A span v-text】
+        <span class='test' >
+          <span v-text="sampleNumber2"></span>
+        </span>
+
+        <hr />
+        【B template v-text】
+        <template v-text="sampleNumber2"></template>
+
+        <hr />
+        【C brackets】
+        [{{sampleNumber}}]
+
+        <hr />
+        【E div v-if】
+        <div AAA v-if="(computedFunc() % 2) === 0">
+          A === 0
+        </div>
+        <div BBB v-else>
+          B === 1
+        </div>
+
+        <hr />
+        【F template v-if】
+        <template v-if="(computedFunc() % 2) === 0">
+          A === 0
+        </template>
+        <template v-else>
+          B === 1
+        </template>
+
+        <hr />
+        【G div v-for】
+          <div class="test" v-for="(item, key, index) in sampleArray">
+            sampleArray(<span v-text="index"></span>) = <span v-text="key"></span> : <span v-text="item"></span>
+              : {{sampleNumber}} | {{sampleNumber + index}} => {{((sampleNumber + index) % 2)?'★':'☆'}}<br />
+          </div>
+          <template v-if="(sampleNumber % 2) === 0">
+          </template>
+
+        <hr />
+        【H template v-for】
+        <template v-for="(item, key, index) in sampleObject">
+          sampleObject(<template v-text="index"></template>) = <template v-text="key"></template> : <template
+            v-text="item"></template><br />
+        </template>
+
+        <hr />
+        <div :style="getStyle()">
+          {{sampleNumber * sampleNumber2}}
+        </div>
+
+        <hr />
+        <div>
+          <span v-html="html"></span><br />
+          <span v-text="html"></span>
+        </div>
+
+        <hr />
+        <div>
+          <span v-html="htmlX"></span><br />
+          <span v-text="htmlX"></span>
+        </div>
+
+        <hr />
+        <div>
+          <template v-html="html2()"></template><br />
+          <template v-text="html2()"></template>
+        </div>
+
+        <hr/>
+        <pre>
+          【PRE STYLE】
+          {{selector}} {
+          <v-template v-for="(item, key) in styles">
+            <v-template v-if="typeof item !== 'object'">
+              <v-template v-if="item">{{key}}: {{item}} {{important?'!important':''}};</v-template>
+            </v-template>
+          </v-template>
+          }
+          <hr/>
+          {{selector}} {
+          <v-template v-for="(item, key) in styles">
+            <v-template v-if="typeof item !== 'object'">
+              <v-template v-if="item">{{key}}: {{item}} {{important?'!important':''}};</v-template>
+            </v-template>
+          </v-template>
+          }
+          <hr/>
+          <template v-for="(item, key) in styles">
+            <template v-if="typeof item === 'object'">
+            {{selector}} {{key}} {!!!!!!!!!!!
+            <template v-for="(v, k) in item">
+              <template v-if="v">{{k}}: {{v}} {{important?'!important':''}};</template>
+            </template>
+            }!!!!!!!!!!!!!!!!
+            </template>
+          </template>
+        </pre>
+
+        <hr />
+        <input v-model.trim="message" placeholder="edit me">
+        <p>Message is: {{ message }}</p>
+
+        <hr />
+        <input v-model.lazy.number="message" placeholder="edit me">
+        <p>Lazy Message is: {{ message }}</p>
+
+
+        <hr />
+        <span>Multiline message is:</span>
+        <p style="white-space: pre-line;">{{ mlMessage }}</p>
+        <br>
+        <textarea v-model="mlMessage" placeholder="add multiple lines"></textarea>
+
+        <hr />
+        <input type="checkbox" v-model="checked">
+        {{checked ? "yes" : "no"}}
+
+        <hr />
+        <input type="checkbox" id="jack" value="Jack" v-model="checkedNames">
+        <label for="jack">Jack</label>
+        <input type="checkbox" id="john" value="John" v-model="checkedNames">
+        <label for="john">John</label>
+        <input type="checkbox" id="mike" value="Mike" v-model="checkedNames">
+        <label for="mike">Mike</label>
+        <br>
+        <span>Checked names: {{ checkedNames }}</span>
+
+        <hr />
+        <input type="radio" name="picked" value="one" v-model="picked">
+        <input type="radio" name="picked" value="two" v-model="picked">
+        {{picked}}
+
+        <hr />
+        <select v-model="selected">
+          <option value="1">one</option>
+          <option value="2">two</option>
+        </select>
+        {{selected}}
+
+        <hr />
+        <select v-model="multiSelect" multiple>
+          <option >one</option>
+          <option >two</option>
+          <option >three</option>
+        </select>
+        {{multiSelect}}
+
+        <hr />
+
+      </div>
+    </transition>
+  -->
+  </div>
+
