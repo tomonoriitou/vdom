@@ -1,4 +1,4 @@
-import VDom, {VDomItem, WATCH, COMPONENTS, Component, Prop, Watch} from './index.ie11'
+import VDom, {VDomItem, WATCH, COMPONENTS, Component, Prop, Watch} from '../../src/index.ie11'
 
 //
 import templateHtml from './main.template.html'
@@ -6,7 +6,7 @@ import css from './main.template.scss'
 import Sub from './Sub'
 import XY from './XY'
 import SlotTest from './SlotTest'
-import { Deep } from './lib/decorator'
+import { Deep } from '../../src/lib/decorator'
 
 //
 @Component({

@@ -1,4 +1,4 @@
-import {VDomComponent, Prop} from './index'
+import {VDomComponent, Prop} from '../../src/index'
 import templateHtml from './XY.template.html'
 import css from './XY.template.scss'
 

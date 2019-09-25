@@ -1,0 +1,5 @@
+coverage/
+tests/
+.DS_Store
+node_modules
+

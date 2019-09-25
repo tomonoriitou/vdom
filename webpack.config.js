@@ -1,8 +1,5 @@
-//const webpack = require("webpack");
 const path = require('path');
 const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin
-// const pjson = require('./package.json');
-// const TerserPlugin = require('terser-webpack-plugin');
 const TsconfigPathsPlugin = require('tsconfig-paths-webpack-plugin');
 const CompressionPlugin = require("compression-webpack-plugin");
 
@@ -24,13 +21,13 @@ module.exports = {
 
   //
   entry: {
-    'main': ['./src/main.ts'],
-    'vdom': ['./src/index.ts'],
-    'vdom.ie11': ['./src/index.ie11.ts'],
+    'public/js/main': ['./public/tests/main.ts'],
+    'dist/vdom': ['./src/index.ts'],
+    'dist/vdom.ie11': ['./src/index.ie11.ts'],
   },
   output: {
-    path: path.join(__dirname, 'public'),
-    filename: 'js/[name].js',
+    path: __dirname, //path.join(__dirname, 'public'),
+    filename: '[name].js',
   },
 
   module: {

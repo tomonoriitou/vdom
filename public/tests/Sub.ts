@@ -1,5 +1,5 @@
-import VDom from './index'
-import {VDomComponent, Component, Prop, Emit} from './index'
+import VDom from '../../src/index'
+import {VDomComponent, Component, Prop, Emit} from '../../src/index'
 import templateHtml from './Sub.template.html'
 import css from './Sub.template.scss'
 

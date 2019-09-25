@@ -1,4 +1,4 @@
-import {VDomComponent} from './index'
+import {VDomComponent} from '../../src/index'
 import templateHtml from './SlotTest.template.html'
 
 //
