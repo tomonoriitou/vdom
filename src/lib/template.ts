@@ -299,9 +299,9 @@ export const readTemplate = (vDom: VDom, template: string, $document: Document, 
             break
           }
 
-          // igunore comment node
+          // ignore comment node
           if(node.nodeValue.substr(0, 1) === '-'){
-            // igunore
+            // ignore
             break
           }
 
